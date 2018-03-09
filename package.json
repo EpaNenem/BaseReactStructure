@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/EpaNenem/BaseReactStructure/issues"
   },
-  "homepage": "https://github.com/EpaNenem/BaseReactStructure#readme"
+  "homepage": "https://github.com/EpaNenem/BaseReactStructure#readme",
+  "devDependencies": {
+    "npx": "^10.0.1"
+  }
 }
