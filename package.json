@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/EpaNenem/BaseReactStructure#readme",
   "devDependencies": {
-    "npx": "^10.0.1"
+    "npx": "^10.0.1",
+    "webpack": "^4.1.1"
   }
 }
