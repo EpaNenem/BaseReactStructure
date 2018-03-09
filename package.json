@@ -1,0 +1,19 @@
+{
+  "name": "react-base-structure",
+  "version": "0.0.1",
+  "description": "Base of React Applications",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EpaNenem/BaseReactStructure.git"
+  },
+  "author": "jhsilva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EpaNenem/BaseReactStructure/issues"
+  },
+  "homepage": "https://github.com/EpaNenem/BaseReactStructure#readme"
+}
