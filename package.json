@@ -24,6 +24,7 @@
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^0.28.10",
     "cssnano": "^3.10.0",
     "html-loader": "^0.5.5",
@@ -41,6 +42,7 @@
   },
   "dependencies": {
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "react-loadable": "^5.3.1"
   }
 }

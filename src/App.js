@@ -1,6 +1,12 @@
 import React from 'react';
-import { render } from 'react-dom';
+import ReactDOM from 'react-dom';
+import Loadable from 'react-loadable';
 
-const App = () => <h1>Hello</h1>;
+const HiLoadableComponent = Loadable({
+  loader: () => import('./components/Hi' /* webpackChunkName: 'component-hi' */),
+  loading() {
+    return <div>Loading...</div>
+  }
+})
 
-render(<App />, document.getElementById('app'));
+ReactDOM.render(<HiLoadableComponent />, document.getElementById('app'));
