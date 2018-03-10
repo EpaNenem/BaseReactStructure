@@ -1,11 +1,32 @@
 const path = require('path');
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+const HtmlWebPackPlugin = require('html-webpack-plugin');
+const package = require('./package.json');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    app: './src/index.js',
+    commons: Object.keys(package.dependencies)
+  },
   output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'dist'),
+    chunkFilename: './[name].[chunkhash].js',
+    filename: './[name].[chunkhash].js'
+  },
+  optimization: {
+    splitChunks: {
+      name: true,
+      cacheGroups: {
+        commons: {
+          name: 'commons',
+          chunks: 'all',
+          minChunks: 2,
+          enforce: true
+        }
+      }
+    },
+    runtimeChunk: {
+      name: 'commons'
+    },
   },
   module: {
     rules: [
