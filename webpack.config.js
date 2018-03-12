@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
 const pkg = require('./package.json');
 
 module.exports = {
@@ -89,5 +90,6 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: './src/index.html',
     }),
+    new StyleLintPlugin(),
   ],
 };
