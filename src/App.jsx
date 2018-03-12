@@ -7,7 +7,7 @@ const HiLoadableComponent = Loadable({
     import('./components/Hi' /* webpackChunkName: 'component-hi' */),
   loading() {
     return <div>Loading...</div>;
-  }
+  },
 });
 
 ReactDOM.render(<HiLoadableComponent />, document.getElementById('app'));

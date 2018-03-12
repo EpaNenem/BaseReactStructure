@@ -1,11 +1,14 @@
 {
   "presets": [
     "react",
-    ["env", {
-      "targets": {
-        "bowsers": ["last 2 versions"]
+    [
+      "env",
+      {
+        "targets": {
+          "bowsers": ["last 2 versions"]
+        }
       }
-    }],
+    ],
     "stage-0"
   ],
   "comments": true

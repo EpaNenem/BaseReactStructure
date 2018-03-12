@@ -1,9 +1,7 @@
-import App from './App';
+import './App';
 
-import './index.css';
+import './index.scss';
 
-function sayHello() {
-  console.log('Hello my friends, welcome to my console :)');
-}
+function sayHello() {}
 
 sayHello();
