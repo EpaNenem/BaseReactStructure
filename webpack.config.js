@@ -26,7 +26,7 @@ module.exports = {
     },
     runtimeChunk: {
       name: 'commons'
-    },
+    }
   },
   module: {
     rules: [
@@ -47,7 +47,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.css$/,
+        test: /\.scss$/,
         use: [
           {
             loader: 'style-loader',
