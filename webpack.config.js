@@ -9,8 +9,8 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    chunkFilename: './[name].[chunkhash].js',
-    filename: './[name].[chunkhash].js',
+    chunkFilename: './[name].[hash].js',
+    filename: './[name].[hash].js',
   },
   resolve: {
     extensions: ['*', '.js', '.jsx', '.scss'],
@@ -36,6 +36,13 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      {
+        test: /\.jsx$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
