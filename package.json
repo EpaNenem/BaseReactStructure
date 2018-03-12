@@ -6,8 +6,16 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
     "dev": "webpack --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "lint": "eslint --ext .jsx,.js src/",
+    "stylelint": "stylelint src/**/*.scss --color",
+    "test": ""
   },
+  "pre-commit": [
+    "lint",
+    "stylelint",
+    "test"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/EpaNenem/BaseReactStructure.git"
@@ -28,20 +36,33 @@
     "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^0.28.10",
     "cssnano": "^3.10.0",
+    "doiuse": "^4.0.0",
     "eslint": "^4.18.2",
     "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.9.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.7.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.0.6",
     "node-sass": "^4.7.2",
     "npx": "^10.0.1",
+    "postcss-bem-linter": "^3.1.0",
     "postcss-cssnext": "^3.1.0",
+    "postcss-font-magician": "^2.1.0",
+    "postcss-import": "^11.1.0",
     "postcss-loader": "^2.1.1",
+    "postcss-preset-env": "^3.2.2",
+    "postcss-url": "^7.3.1",
     "precss": "^3.1.2",
     "prettier": "^1.11.1",
     "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
+    "stylefmt": "^6.0.0",
+    "stylelint": "^9.1.1",
+    "stylelint-config-standard": "^18.2.0",
+    "stylelint-selector-bem-pattern": "^2.0.0",
+    "stylelint-webpack-plugin": "^0.10.3",
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.10",
     "webpack-dev-server": "^3.1.1"
