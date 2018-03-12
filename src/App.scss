@@ -4,4 +4,10 @@ $white: #fff;
 body {
   background-color: $black;
   color: $white;
+  font-family: 'Open Sans', Arial, sans-serif;
+}
+
+// example to doiuse in postcss plugin
+.element {
+  clip-path: rect(10px, 20px, 30px, 40px);
 }
