@@ -1,16 +1,21 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
-const package = require('./package.json');
+const StyleLintPlugin = require('stylelint-webpack-plugin');
+const pkg = require('./package.json');
 
 module.exports = {
   entry: {
     app: './src/index.js',
-    commons: Object.keys(package.dependencies)
+    commons: Object.keys(pkg.dependencies),
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    chunkFilename: './[name].[chunkhash].js',
-    filename: './[name].[chunkhash].js'
+    chunkFilename: './[name].[hash].js',
+    filename: './[name].[hash].js',
+  },
+  resolve: {
+    extensions: ['*', '.js', '.jsx', '.scss'],
+    modules: ['src', 'node_modules'],
   },
   optimization: {
     splitChunks: {
@@ -20,12 +25,12 @@ module.exports = {
           name: 'commons',
           chunks: 'all',
           minChunks: 2,
-          enforce: true
-        }
-      }
+          enforce: true,
+        },
+      },
     },
     runtimeChunk: {
-      name: 'commons'
+      name: 'commons',
     },
   },
   module: {
@@ -34,24 +39,31 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
-        }
+          loader: 'babel-loader',
+        },
+      },
+      {
+        test: /\.jsx$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
       },
       {
         test: /\.html$/,
         use: [
           {
             loader: 'html-loader',
-            options: { minimize: true }
-          }
-        ]
+            options: { minimize: true },
+          },
+        ],
       },
       {
-        test: /\.css$/,
+        test: /\.scss$/,
         use: [
           {
             loader: 'style-loader',
-            options: { sourceMap: true }
+            options: { sourceMap: true },
           },
           {
             loader: 'css-loader',
@@ -59,24 +71,25 @@ module.exports = {
               sourceMap: true,
               importLoaders: 2,
               modules: true,
-              localIdentName: '[name]__[local]__[hash:base64:5]'
-            }
+              localIdentName: '[name]__[local]__[hash:base64:5]',
+            },
           },
           {
             loader: 'postcss-loader',
-            options: { sourceMap: true }
+            options: { sourceMap: true },
           },
           {
             loader: 'sass-loader',
-            options: { sourceMap: true }
-          }
-        ]
-      }
-    ]
+            options: { sourceMap: true },
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     new HtmlWebPackPlugin({
-      template: './src/index.html'
-    })
-  ]
+      template: './src/index.html',
+    }),
+    new StyleLintPlugin(),
+  ],
 };
